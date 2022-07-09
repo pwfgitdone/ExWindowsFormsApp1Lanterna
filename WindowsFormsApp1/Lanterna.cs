@@ -8,16 +8,16 @@ namespace WindowsFormsApp1
 {
     public class Lanterna
     {
-        public string status = "Desligada";
+        public string statusBotaoEnergia = "Desligado";
 
-        public void LigarLanterna()
+        public void Ligar()
         {
-            this.status = "Ligada";
+            this.statusBotaoEnergia = "Ligado";
         }
 
-        public void DesligarLanterna()
+        public void Desligar()
         {
-            this.status = "Desligada";
+            this.statusBotaoEnergia = "Desligado";
         }
     }
 }

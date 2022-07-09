@@ -21,12 +21,14 @@ namespace WindowsFormsApp1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (lanterna1.status == "Ligada") {
+            if (lanterna1.statusBotaoEnergia == "Ligado") {
                 if (bateria1.status > 0)
                 {
+                    label3.Text = "Ligada";
                     bateria1.ReduzirBateria();
                     label4.Text = bateria1.status + "%";
                 }
+                if (bateria1.status == 0) label3.Text = "Desligada";
             }
         }
 
@@ -37,18 +39,24 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (lanterna1.status=="Desligada")
+            if (lanterna1.statusBotaoEnergia == "Desligado")
             {
-                lanterna1.LigarLanterna();
-                MessageBox.Show("Lanterna está ligada!", "Atention!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                label3.Text = "Ligada";
-                if (bateria1.status == 0) { MessageBox.Show("Lanterna precisa trocar bateria!", "Atention!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+                lanterna1.Ligar();
+                label7.Text = "Ligado";
+                if (bateria1.status > 0)
+                {
+                    label3.Text = "Ligada";
+                    MessageBox.Show("Lanterna está ligada!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                } else { 
+                    MessageBox.Show("Lanterna precisa trocar bateria!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); 
+                }
             }
             else
             {
-                lanterna1.DesligarLanterna();
-                MessageBox.Show("Lanterna está desligada!", "Atention!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                lanterna1.Desligar();
+                label7.Text = "Desligado";
                 label3.Text = "Desligada";
+                MessageBox.Show("Lanterna está desligada!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -61,6 +69,7 @@ namespace WindowsFormsApp1
         {
             bateria1.TrocarBateria();
             label4.Text=bateria1.status + "%";
+
         }
     }
 }
