@@ -32,11 +32,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            //ligar/desligar lanterna
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (lanterna1.statusBotaoEnergia == "Desligado")
@@ -58,11 +53,6 @@ namespace WindowsFormsApp1
                 label3.Text = "Desligada";
                 MessageBox.Show("Lanterna está desligada!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //Lanterna lanterna1 = new Lanterna();
         }
 
         private void button2_Click(object sender, EventArgs e)
