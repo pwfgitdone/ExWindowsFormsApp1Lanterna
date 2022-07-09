@@ -69,7 +69,7 @@ namespace WindowsFormsApp1
         {
             bateria1.TrocarBateria();
             label4.Text=bateria1.status + "%";
-
+            if (lanterna1.statusBotaoEnergia == "Ligado") label3.Text = "Ligada";
         }
     }
 }
